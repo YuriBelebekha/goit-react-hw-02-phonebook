@@ -30,13 +30,13 @@ export class App extends Component {
     checkDuplicateContact
       ? alert(`${name.toUpperCase()} is already in contacts`)
       : this.setState(({ contacts }) => ({
-          contacts: [contact, ...contacts],
-        }));
-  }
+        contacts: [contact, ...contacts],
+      }));
+  };
 
-  changeFilter = e => {    
-    this.setState({ filter: e.currentTarget.value });    
-  }
+  changeFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
+  };
 
   deleteContact = (contactId) => {
     this.setState(prevState => ({

@@ -5,9 +5,7 @@ const Section = ({ title, children }) => {
   return (
     <section className={css.section}>      
       {title && <h2>{title}</h2>}
-      <ul>
-        {children}
-      </ul>
+      {children}      
     </section>
   )
 };
