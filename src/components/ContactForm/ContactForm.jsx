@@ -8,23 +8,23 @@ class ContactForm extends Component {
     number: '',
   };
 
-  handleChangeName = e => {
-    this.setState({ name: e.currentTarget.value });    
+  handleChange = e => {
+    const { name, value } = e.currentTarget;
+    this.setState({ [name]: value });
   };
-
-  handleChangeNumber = e => {
-    this.setState({ number: e.currentTarget.value });
-  };
-
+  
   handleSubmit = e => {
-    e.preventDefault();
+    e.preventDefault();    
     this.props.onSubmit(this.state.name, this.state.number);
-    this.setState({ name: '', number: '' });
-  } 
+    this.setState({ name: '', number: '' }); 
+  };
 
   render() {
     return (
-      <form className={css.section} onSubmit={this.handleSubmit} >
+      <form
+        className={css.section}
+        onSubmit={this.handleSubmit}
+      >
         <label>
           Name
           <input
@@ -32,9 +32,9 @@ class ContactForm extends Component {
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
             value={this.state.name}
-            onChange={this.handleChangeName}
+            onChange={this.handleChange}
+            required            
           />
         </label>
 
@@ -45,9 +45,9 @@ class ContactForm extends Component {
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            required
             value={this.state.number}
-            onChange={this.handleChangeNumber}
+            onChange={this.handleChange}
+            required            
           />
         </label>
         <button className={css.btnAdd} type="submit">Add contact</button>

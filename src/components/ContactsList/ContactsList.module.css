@@ -1,13 +1,3 @@
 .contactList {
   width: 100%;
 }
-
-.contactListItem {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-p {
-  margin-bottom: 0;
-}
